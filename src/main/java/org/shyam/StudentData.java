@@ -46,4 +46,43 @@ public class StudentData {
             pst.executeUpdate();
         }
     }
+    public void fetch(int id) throws SQLException {
+        String sql = "SELECT * FROM STUDENTS WHERE ID = ?";
+        try (Connection con = getConnection();
+        PreparedStatement pst = con.prepareStatement(sql)) {
+            pst.setInt(1, id);
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    System.out.println("Student Details:");
+                    System.out.println("ID: " + rs.getInt("ID"));
+                    System.out.println("Name: " + rs.getString("NAME"));
+                    System.out.println("Surname: " + rs.getString("SURNAME"));
+                    System.out.println("Email: " + rs.getString("EMAIL"));
+                    System.out.println("Phone: " + rs.getString("PHONE"));
+                    System.out.println("Branch: " + rs.getString("BRANCH"));
+                    System.out.println("Joining Year: " + rs.getString("JOINING_YEAR"));
+                } else {
+                    System.out.println("No student found with ID " + id);
+                }
+            }
+        }
+    }
+    public  void fetchAll() throws SQLException {
+        String sql = "SELECT * FROM STUDENTS";
+        try (Connection con = getConnection();
+        PreparedStatement pst = con.prepareStatement(sql)) {
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs.next()) {
+                    System.out.println("Student Details:");
+                    System.out.println("ID: " + rs.getInt("ID"));
+                    System.out.println("Name: " + rs.getString("NAME"));
+                    System.out.println("Surname: " + rs.getString("SURNAME"));
+                    System.out.println("Email: " + rs.getString("EMAIL"));
+                    System.out.println("Phone: " + rs.getString("PHONE"));
+                    System.out.println("Branch: " + rs.getString("BRANCH"));
+                    System.out.println("Joining Year: " + rs.getString("JOINING_YEAR"));
+                }
+            }
+        }
+    }
 }

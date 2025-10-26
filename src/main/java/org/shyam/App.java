@@ -80,6 +80,16 @@ public class App {
         var student = new Student();
         student.delete(id);
     }
+    public static void fetchStudent(){
+        System.out.print("Enter Student ID: ");
+        var id = sc.nextInt();
+        var student = new Student();
+        student.fetch(id);
+    }
+    public static void fetchAll(){
+        var student = new Student();
+        student.fetchAll();
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Student Management System");
@@ -90,7 +100,9 @@ public class App {
                     1  Add Student
                     2  Update Student
                     3  Delete Student
-                    4  Exit
+                    4 view student details
+                    5 view All
+                    6  Exit
                     -------------------------------
                     """);
             System.out.print("Enter your choice: ");
@@ -110,7 +122,10 @@ public class App {
                 updateStudentDetails();
             } else if (choice == 3) {
                 deleteStudentDetails();
-            } else if (choice == 4) {
+
+            }else if(choice == 4){
+                fetchStudent();
+            } else if (choice == 6) {
                 System.out.println("Exiting... Goodbye!");
                 sc.close();
                 System.exit(0);

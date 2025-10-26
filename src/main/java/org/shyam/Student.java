@@ -29,4 +29,20 @@ public class Student {
             e.printStackTrace();
         }
     }
+    public void fetch(int id) {
+        try{
+            db.fetch(id);
+            System.out.println("Student fetched successfully.");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void fetchAll() {
+        try{
+            db.fetchAll();
+            System.out.println("Student fetched successfully.");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
