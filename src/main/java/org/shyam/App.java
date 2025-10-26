@@ -122,10 +122,11 @@ public class App {
                 updateStudentDetails();
             } else if (choice == 3) {
                 deleteStudentDetails();
-
             }else if(choice == 4){
                 fetchStudent();
-            } else if (choice == 6) {
+            }else if(choice==5){
+                fetchAll();
+            }else if (choice == 6) {
                 System.out.println("Exiting... Goodbye!");
                 sc.close();
                 System.exit(0);
